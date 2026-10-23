@@ -77,8 +77,6 @@ mangohud
 lib32-mangohud
 goverlay
 steam
-vkbasalt
-lib32-vkbasalt
 
 # --- Windows Compatibility (Wine, Proton, Amazing Online / CRMP Stack) ---
 wine-staging
@@ -93,7 +91,6 @@ lib32-libpulse
 lib32-alsa-plugins
 lib32-libxcomposite
 lib32-libxinerama
-lib32-openal
 openal
 
 # --- Fonts & Fast Terminal ---
