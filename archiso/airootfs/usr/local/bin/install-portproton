@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+set -e
+
+echo "=================================================="
+echo "    Installing PortProton on neweraseOS           "
+echo "=================================================="
+
+# Check if already installed
+if command -v portproton &> /dev/null; then
+    echo "PortProton is already installed!"
+    exec portproton "$@"
+    exit 0
+fi
+
+echo "Downloading and launching official PortProton installer..."
+curl -sL https://raw.githubusercontent.com/Castro-Fidel/PortProton_scripts/main/portproton | bash
+
+echo "PortProton successfully configured for neweraseOS!"

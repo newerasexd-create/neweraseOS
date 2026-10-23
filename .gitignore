@@ -1,0 +1,16 @@
+# Build output
+out/
+*.iso
+*.tar.gz
+*.sha256
+sha256sum.txt
+
+# Work directories
+work/
+/tmp/
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*~

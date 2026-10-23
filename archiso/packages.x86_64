@@ -1,0 +1,133 @@
+# ----------------------------------------------------------------------
+# neweraseOS - Core Package List
+# Base System, KDE Plasma 6 Desktop, SteamOS Gaming Stack, Wine/CRMP
+# ----------------------------------------------------------------------
+
+# --- Base & Kernel ---
+base
+base-devel
+linux-zen
+linux-zen-headers
+linux-firmware
+sof-firmware
+mkinitcpio
+mkinitcpio-archiso
+archiso
+sudo
+zram-generator
+btrfs-progs
+e2fsprogs
+dosfstools
+ntfs-3g
+exfatprogs
+
+# --- Hardware & Acceleration ---
+mesa
+lib32-mesa
+vulkan-icd-loader
+lib32-vulkan-icd-loader
+vulkan-tools
+vulkan-radeon
+lib32-vulkan-radeon
+vulkan-intel
+lib32-vulkan-intel
+xf86-video-amdgpu
+xf86-video-ati
+intel-media-driver
+libva-mesa-driver
+lib32-libva-mesa-driver
+
+# --- Networking, Bluetooth & System Management ---
+networkmanager
+networkmanager-openvpn
+wireless_tools
+wpa_supplicant
+bluez
+bluez-utils
+bluedevil
+power-profiles-daemon
+pciutils
+usbutils
+lm_sensors
+cpupower
+
+# --- Audio (PipeWire Low-Latency Stack) ---
+pipewire
+pipewire-audio
+pipewire-alsa
+pipewire-pulse
+pipewire-jack
+wireplumber
+lib32-pipewire
+lib32-pipewire-jack
+
+# --- KDE Plasma 6 Desktop Environment ---
+plasma-desktop
+plasma-workspace
+plasma-wayland-protocols
+plasma-nm
+plasma-pa
+powerdevil
+kscreen
+sddm
+sddm-kcm
+dolphin
+konsole
+ark
+kate
+spectacle
+gwenview
+kdegraphics-thumbnailers
+ffmpegthumbs
+
+# --- SteamOS Gaming Stack & Performance ---
+gamescope
+gamemode
+lib32-gamemode
+mangohud
+lib32-mangohud
+goverlay
+steam
+vkbasalt
+lib32-vkbasalt
+
+# --- Windows Compatibility (Wine, Proton, Amazing Online / CRMP Stack) ---
+wine-staging
+winetricks
+wine-gecko
+wine-mono
+lib32-gnutls
+lib32-libldap
+lib32-libgpg-error
+lib32-sqlite
+lib32-libpulse
+lib32-alsa-plugins
+lib32-libxcomposite
+lib32-libxinerama
+lib32-openal
+openal
+
+# --- Fonts (Essential for Russian text & Windows Launchers) ---
+noto-fonts
+noto-fonts-cjk
+noto-fonts-emoji
+ttf-dejavu
+ttf-liberation
+
+# --- Tools & Utilities ---
+fastfetch
+htop
+btop
+git
+curl
+wget
+unzip
+p7zip
+nano
+neovim
+zsh
+bash-completion
+
+# --- Installer ---
+calamares
+kpmcore

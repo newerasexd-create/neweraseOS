@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+# ====================================================================
+# neweraseOS Game Helper - Windows & CRMP Game Optimizer
+# ====================================================================
+
+set -e
+
+GAME_EXE="$1"
+GAME_NAME="$2"
+
+if [ -z "$GAME_EXE" ]; then
+    echo "=================================================="
+    echo "   neweraseOS Game Helper (SteamOS + Wine Stack)  "
+    echo "=================================================="
+    echo "Usage: newerase-game-helper <path-to-installer-or-exe> [GameName]"
+    echo ""
+    echo "Examples:"
+    echo "  newerase-game-helper ~/Downloads/Amazing_Launcher.exe 'Amazing Online'"
+    echo "  newerase-game-helper ~/Games/CRMP/launcher.exe 'CRMP'"
+    echo ""
+    echo "This script automatically sets up:"
+    echo "  ✔ Optimized Wine prefix with 32-bit & 64-bit support"
+    echo "  ✔ DXVK Vulkan translation for maximum FPS"
+    echo "  ✔ Feral GameMode auto-acceleration"
+    echo "  ✔ MangoHud telemetry overlay"
+    echo "  ✔ Valve Gamescope containerization & FSR support"
+    echo "  ✔ Russian fonts fix for Windows launchers"
+    exit 1
+fi
+
+if [ -z "$GAME_NAME" ]; then
+    GAME_NAME="WindowsGame"
+fi
+
+PREFIX_DIR="$HOME/.local/share/newerase-games/$GAME_NAME"
+mkdir -p "$PREFIX_DIR"
+
+export WINEPREFIX="$PREFIX_DIR"
+export WINEDEBUG="-all"
+export WINEFSYNC=1
+export WINEESYNC=1
+export DXVK_HUD=0
+
+echo "[neweraseOS] Initializing optimized wine prefix in: $PREFIX_DIR"
+wineboot -u
+
+echo "[neweraseOS] Launching $GAME_NAME with GameMode and MangoHud..."
+gamemoderun mangohud wine "$GAME_EXE"

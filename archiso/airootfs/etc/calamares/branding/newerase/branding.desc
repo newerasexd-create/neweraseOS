@@ -1,0 +1,31 @@
+# neweraseOS Calamares Branding
+---
+componentName: newerase
+welcomeStyleCalamares: false
+welcomeExpandingLogo: true
+windowExpanding: normal
+windowSize: 850px,580px
+windowPlacement: center
+
+strings:
+    productName:         neweraseOS
+    version:             2026.1
+    shortProductName:    neweraseOS
+    versionedName:       neweraseOS 2026.1
+    shortVersionedName:  neweraseOS 2026.1
+    bootloaderEntryName: neweraseOS
+    productUrl:          https://github.com/neweraseOS
+    supportUrl:          https://github.com/neweraseOS/issues
+    knownIssuesUrl:      https://github.com/neweraseOS/issues
+    releaseNotesUrl:     https://github.com/neweraseOS
+
+images:
+    productLogo:         "calamares-logo.png"
+    productIcon:         "calamares-logo.png"
+    productWelcome:      "welcome.png"
+
+style:
+   Sidebar: "#181a1f"
+   SidebarText: "#ffffff"
+   SidebarTextSelect: "#00d2ff"
+   SidebarTextHighlight: "#00d2ff"

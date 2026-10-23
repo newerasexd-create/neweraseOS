@@ -1,0 +1,66 @@
+name: Build neweraseOS ISO
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - 'README.md'
+      - '.gitignore'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Free disk space on runner
+        run: |
+          sudo rm -rf /usr/share/dotnet
+          sudo rm -rf /opt/ghc
+          sudo rm -rf "/usr/local/share/boost"
+          sudo rm -rf "$AGENT_TOOLSDIRECTORY"
+          df -h
+
+      - name: Create output directories
+        run: |
+          mkdir -p out
+          chmod 777 out
+
+      - name: Build neweraseOS ISO in Arch Linux container
+        run: |
+          docker run --rm --privileged \
+            -v "${{ github.workspace }}:/workspace" \
+            -w /workspace \
+            archlinux:latest bash -c "
+              set -e
+              echo '>>> Updating Arch Linux keyrings and base packages...'
+              pacman -Syu --noconfirm archlinux-keyring
+              pacman -S --noconfirm archiso git zstd sed grep
+
+              echo '>>> Starting mkarchiso build for neweraseOS...'
+              mkarchiso -v -w /tmp/archiso-work -o /workspace/out /workspace/archiso
+
+              echo '>>> Build finished successfully!'
+              ls -lh /workspace/out
+            "
+
+      - name: Generate SHA256 checksums
+        run: |
+          cd out
+          sha256sum *.iso > sha256sum.txt
+          cat sha256sum.txt
+
+      - name: Upload ISO Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: neweraseOS-ISO
+          path: |
+            out/*.iso
+            out/sha256sum.txt
+          retention-days: 7

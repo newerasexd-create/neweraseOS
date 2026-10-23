@@ -1,0 +1,10 @@
+NAME="neweraseOS"
+PRETTY_NAME="neweraseOS (Plasma 6 & Gaming Edition)"
+ID=neweraseos
+ID_LIKE=arch
+BUILD_ID=rolling
+ANSI_COLOR="38;2;23;147;209"
+HOME_URL="https://github.com/neweraseOS"
+SUPPORT_URL="https://github.com/neweraseOS/issues"
+BUG_REPORT_URL="https://github.com/neweraseOS/issues"
+LOGO=neweraseos-logo

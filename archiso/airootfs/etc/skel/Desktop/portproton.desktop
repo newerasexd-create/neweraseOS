@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=PortProton (Amazing Online / Windows Games)
+Comment=Run Windows Games & Launchers (Amazing Online, Radmir, VK Play)
+Exec=/usr/local/bin/install-portproton
+Icon=wine
+Terminal=true
+Categories=Game;
+StartupNotify=true
