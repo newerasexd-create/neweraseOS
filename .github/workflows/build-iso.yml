@@ -57,6 +57,9 @@ jobs:
               echo '>>> Enabling multilib repository for 32-bit Wine & games...'
               sed -i '/\[multilib\]/,/Include/ s/^#//' /tmp/newerase-profile/pacman.conf
 
+              echo '>>> Removing conflicting releng packages...'
+              sed -i '/virtualbox-guest-utils-nox/d' /tmp/newerase-profile/packages.x86_64
+
               echo '>>> Appending neweraseOS gaming, desktop and aesthetic packages...'
               cat /workspace/archiso/packages.x86_64 >> /tmp/newerase-profile/packages.x86_64
               sort -u /tmp/newerase-profile/packages.x86_64 -o /tmp/newerase-profile/packages.x86_64
