@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 set -e
 
+# Ensure root has no password lock
+passwd -d root || true
+
 # Create liveuser if not present
 if ! id -u liveuser >/dev/null 2>&1; then
     useradd -m -g users -G wheel,audio,video,storage,optical,input,network -s /bin/bash liveuser

@@ -1,0 +1,10 @@
+[SddmGreeterTheme]
+Name=newerase
+Description=neweraseOS Custom Monochrome Cyberpunk Login Theme
+Author=neweraseOS Project
+Type=sddm-theme
+Version=1.0
+MainScript=Main.qml
+ConfigFile=theme.conf
+TranslationsDirectory=translations
+Email=admin@newerase.os
