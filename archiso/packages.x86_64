@@ -3,25 +3,17 @@
 # Base System, KDE Plasma 6 Desktop, SteamOS Gaming Stack, Wine/CRMP
 # ----------------------------------------------------------------------
 
-# --- Base & Kernel ---
-base
-base-devel
+# --- Kernel & Hardware Acceleration ---
 linux-zen
 linux-zen-headers
 linux-firmware
 sof-firmware
-mkinitcpio
-mkinitcpio-archiso
-archiso
-sudo
 zram-generator
 btrfs-progs
-e2fsprogs
-dosfstools
 ntfs-3g
 exfatprogs
 
-# --- Hardware & Acceleration ---
+# --- Graphics & Vulkan (AMD, Intel, Nvidia support) ---
 mesa
 lib32-mesa
 vulkan-icd-loader
@@ -37,19 +29,16 @@ intel-media-driver
 libva-mesa-driver
 lib32-libva-mesa-driver
 
-# --- Networking, Bluetooth & System Management ---
+# --- Networking & Bluetooth ---
 networkmanager
 networkmanager-openvpn
-wireless_tools
+iw
+wireless-regdb
 wpa_supplicant
 bluez
 bluez-utils
 bluedevil
 power-profiles-daemon
-pciutils
-usbutils
-lm_sensors
-cpupower
 
 # --- Audio (PipeWire Low-Latency Stack) ---
 pipewire
@@ -107,27 +96,18 @@ lib32-libxinerama
 lib32-openal
 openal
 
-# --- Fonts (Essential for Russian text & Windows Launchers) ---
+# --- Fonts & Fast Terminal ---
 noto-fonts
 noto-fonts-cjk
 noto-fonts-emoji
 ttf-dejavu
 ttf-liberation
-
-# --- Tools & Utilities ---
 fastfetch
 htop
 btop
-git
-curl
-wget
-unzip
 p7zip
-nano
 neovim
 zsh
-bash-completion
 
 # --- Installer ---
-calamares
-kpmcore
+archinstall
