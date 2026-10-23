@@ -1,0 +1,13 @@
+[Plugins]
+blurEnabled=true
+contrastEnabled=true
+translucencyEnabled=true
+wobblywindowsEnabled=false
+
+[Effect-blur]
+BlurStrength=12
+NoiseStrength=0
+
+[Wayland]
+InputMethodServer=
+VirtualKeyboard=

@@ -14,6 +14,13 @@ ntfs-3g
 exfatprogs
 virtualbox-guest-utils
 
+# --- Display Server & XWayland (Mandatory for SDDM, Steam, Wine, Amazing Online) ---
+xorg-server
+xorg-xinit
+xorg-xwayland
+qt6-wayland
+mesa-utils
+
 # --- Graphics & Vulkan (AMD, Intel, Nvidia support) ---
 mesa
 lib32-mesa

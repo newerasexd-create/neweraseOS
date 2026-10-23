@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=Install neweraseOS
+Comment=Guided Installer for neweraseOS
+Exec=konsole -e sudo archinstall
+Icon=system-software-install
+Terminal=false
+Categories=System;
+StartupNotify=true
