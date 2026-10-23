@@ -1,11 +1,10 @@
-import QtQuick 2.15
-import QtQuick.Controls 2.15
-import QtQuick.Layouts 1.15
+import QtQuick
+import QtQuick.Controls
+import QtQuick.Layouts
 
 Item {
     id: root
-    width: 1920
-    height: 1080
+    anchors.fill: parent
 
     // Load custom Syne font
     FontLoader {
@@ -348,26 +347,13 @@ Item {
         var user = usernameInput.text.trim();
         if (user === "") user = "liveuser";
         var pass = passwordInput.text;
-        var sIndex = (typeof sessionModel !== "undefined" && sessionModel.lastIndex >= 0) ? sessionModel.lastIndex : 0;
+        var sIndex = 0;
         
         statusLabel.color = "#10b981";
         statusLabel.text = "Авторизация [" + user + "]... Запуск KDE Plasma 6...";
         
         if (typeof sddm !== "undefined") {
             sddm.login(user, pass, sIndex);
-        }
-    }
-
-    // SDDM Event Handlers
-    Connections {
-        target: (typeof sddm !== "undefined") ? sddm : null
-        function onLoginFailed() {
-            statusLabel.color = "#ef4444";
-            statusLabel.text = "Ошибка входа. Попробуйте снова.";
-        }
-        function onLoginSucceeded() {
-            statusLabel.color = "#38bdf8";
-            statusLabel.text = "Успешный вход! Загрузка...";
         }
     }
 }
