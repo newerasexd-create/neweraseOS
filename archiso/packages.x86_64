@@ -12,6 +12,7 @@ zram-generator
 btrfs-progs
 ntfs-3g
 exfatprogs
+virtualbox-guest-utils
 
 # --- Graphics & Vulkan (AMD, Intel, Nvidia support) ---
 mesa
@@ -68,6 +69,7 @@ spectacle
 gwenview
 kdegraphics-thumbnailers
 ffmpegthumbs
+papirus-icon-theme
 
 # --- SteamOS Gaming Stack & Performance ---
 gamescope
@@ -99,6 +101,7 @@ noto-fonts-cjk
 noto-fonts-emoji
 ttf-dejavu
 ttf-liberation
+ttf-jetbrains-mono
 fastfetch
 htop
 btop

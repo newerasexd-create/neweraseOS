@@ -1,0 +1,12 @@
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Name": "neweraseOS Project"
+            }
+        ],
+        "Id": "neweraseOS",
+        "Name": "neweraseOS Monochrome",
+        "License": "CC-BY-SA-4.0"
+    }
+}

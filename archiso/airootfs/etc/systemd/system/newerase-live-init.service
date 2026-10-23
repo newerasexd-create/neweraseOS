@@ -1,0 +1,12 @@
+[Unit]
+Description=neweraseOS Live Session Initializer
+Before=sddm.service display-manager.service
+DefaultDependencies=no
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/newerase-live-init.sh
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target graphical.target

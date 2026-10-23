@@ -57,12 +57,19 @@ jobs:
               echo '>>> Enabling multilib repository for 32-bit Wine & games...'
               sed -i '/\[multilib\]/,/Include/ s/^#//' /tmp/newerase-profile/pacman.conf
 
-              echo '>>> Appending neweraseOS gaming and desktop packages...'
+              echo '>>> Appending neweraseOS gaming, desktop and aesthetic packages...'
               cat /workspace/archiso/packages.x86_64 >> /tmp/newerase-profile/packages.x86_64
               sort -u /tmp/newerase-profile/packages.x86_64 -o /tmp/newerase-profile/packages.x86_64
 
               echo '>>> Injecting neweraseOS airootfs overlays and configs...'
               cp -r /workspace/archiso/airootfs/* /tmp/newerase-profile/airootfs/
+
+              echo '>>> Configuring systemd for graphical auto-start (SDDM + LiveUser)...'
+              mkdir -p /tmp/newerase-profile/airootfs/etc/systemd/system/multi-user.target.wants
+              mkdir -p /tmp/newerase-profile/airootfs/etc/systemd/system/graphical.target.wants
+              ln -sf /usr/lib/systemd/system/sddm.service /tmp/newerase-profile/airootfs/etc/systemd/system/display-manager.service
+              ln -sf /etc/systemd/system/newerase-live-init.service /tmp/newerase-profile/airootfs/etc/systemd/system/multi-user.target.wants/newerase-live-init.service
+              chmod +x /tmp/newerase-profile/airootfs/usr/local/bin/* || true
 
               echo '>>> Starting mkarchiso compilation...'
               mkarchiso -v -w /tmp/archiso-work -o /workspace/out /tmp/newerase-profile
