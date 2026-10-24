@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=1.0
+Name=Zen Browser
+Comment=Experience tranquility while browsing the web
+GenericName=Web Browser
+Exec=/opt/zen/zen %u
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+Icon=zen
+Categories=Network;WebBrowser;
+MimeType=text/html;text/xml;application/xhtml+xml;x-scheme-handler/http;x-scheme-handler/https;
+StartupNotify=true

@@ -8,6 +8,8 @@ sha256sum.txt
 # Work directories
 work/
 /tmp/
+cache/
+archiso/airootfs/opt/
 
 # Editor files
 .vscode/

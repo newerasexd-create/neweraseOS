@@ -116,5 +116,9 @@ p7zip
 neovim
 zsh
 
+# --- Communication & Media ---
+telegram-desktop
+discord
+
 # --- Installer ---
 archinstall

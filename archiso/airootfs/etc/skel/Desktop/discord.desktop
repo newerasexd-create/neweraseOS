@@ -1,0 +1,7 @@
+﻿[Desktop Entry]
+Name=Discord
+Comment=All-in-one voice and text chat for gamers
+Exec=/usr/bin/discord
+Icon=discord
+Type=Application
+Categories=Network;InstantMessaging;

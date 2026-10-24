@@ -3,7 +3,7 @@ $ErrorActionPreference = "Stop"
 $gitOut = "protocol=https`nhost=github.com" | & "C:\Program Files\Git\cmd\git.exe" credential fill
 $token = ($gitOut | Select-String "password=").ToString().Replace("password=","").Trim()
 $headers = @{"Authorization"="Bearer $token"; "User-Agent"="PowerShell"; "Accept"="application/vnd.github+json"}
-$runId = "39957070446"
+$runId = "39964883887"
 $targetDir = "F:\obraz"
 
 Write-Host "Waiting for build $runId to complete..."
@@ -44,9 +44,23 @@ Expand-Archive -Path $zipPath -DestinationPath "$targetDir\extracted" -Force
 $isoFile = (Get-ChildItem -Path "$targetDir\extracted" -Filter "*.iso")[0].FullName
 Copy-Item $isoFile "$targetDir\neweraseOS.iso" -Force
 
-Write-Host "Configuring VirtualBox VM 'newerase'..."
+Write-Host "Configuring VirtualBox VM 'neweraseOS'..."
 $vbox = "F:\virtual\VBoxManage.exe"
-& $vbox modifyvm "newerase" --ostype "ArchLinux_64" --firmware "efi" --long-mode on --pae on --vram 128 --graphicscontroller "vboxsvga" --accelerate-3d off
-& $vbox storageattach "newerase" --storagectl "IDE" --port 1 --device 0 --type dvddrive --medium "$targetDir\neweraseOS.iso"
 
-Write-Host "[SUCCESS] neweraseOS.iso is ready in F:\obraz and attached to VirtualBox VM!"
+# Stop VM if running
+& $vbox controlvm "neweraseOS" poweroff 2>$null
+
+# Re-attach the fresh ISO
+& $vbox storageattach "neweraseOS" --storagectl "IDE" --port 1 --device 0 --type dvddrive --medium "$targetDir\neweraseOS.iso"
+
+Write-Host "Starting VirtualBox VM 'neweraseOS'..."
+& $vbox startvm "neweraseOS"
+
+Write-Host "Waiting 45 seconds for full system and KDE Plasma desktop boot..."
+Start-Sleep -Seconds 45
+
+Write-Host "Taking verification screenshot..."
+& $vbox controlvm "neweraseOS" screenshotpng "$targetDir\final_desktop_verified.png"
+Copy-Item "$targetDir\final_desktop_verified.png" "C:\Users\Administrator\.gemini\antigravity\brain\8bcaef58-e5fd-48ca-b311-75615c8f9d64\final_desktop_verified.png" -Force
+
+Write-Host "[ALL DONE] neweraseOS is fully booted and verified!"

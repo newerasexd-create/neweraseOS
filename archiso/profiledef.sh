@@ -25,4 +25,7 @@ file_permissions=(
   ["/usr/local/bin/newerase-welcome"]="0:0:755"
   ["/usr/local/bin/install-portproton"]="0:0:755"
   ["/usr/local/bin/newerase-live-init.sh"]="0:0:755"
+  ["/usr/local/bin/zen"]="0:0:755"
+  ["/opt/zen/zen"]="0:0:755"
+  ["/opt/happ/bin/Happ"]="0:0:755"
 )
